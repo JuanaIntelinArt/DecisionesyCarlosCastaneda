@@ -1,0 +1,166 @@
+/* frontend/src/App.css (Código completo de Estilos Pasteles) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+/* --- PALETA CÁLIDA Y GÓTICA --- */
+:root {
+    --color-bg-pastel: #FFF8E1; /* Amarillo Pastel */
+    --color-trunk-pastel: #EAD8C7; /* Marrón Pastel */
+    --color-leaf-pastel: #D5E8D4; /* Verde Menta Pastel */
+    --color-text-dark: #444444; /* Gris Plomo */
+    --color-accent: #F0A30A; /* Naranja/Acento Cálido */
+    --font-gothic: 'Playfair Display', serif;
+}
+
+body {
+    font-family: var(--font-gothic); 
+    background-color: var(--color-bg-pastel);
+    color: var(--color-text-dark);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #000000;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 2.2em;
+    margin-bottom: 40px;
+}
+
+/* --- TRONCO (Input Inicial) --- */
+.trunk-form {
+    padding: 25px;
+    background-color: var(--color-trunk-pastel);
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.trunk-form textarea, .theme-selector select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #D1C4B5;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    color: var(--color-text-dark);
+    font-family: sans-serif; /* Mejor legibilidad en inputs */
+    resize: vertical;
+    min-height: 80px;
+}
+
+.theme-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.theme-selector label { font-size: 0.9em; font-weight: 700; }
+
+
+.trunk-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-accent); 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+.trunk-form button:hover:not(:disabled) {
+    background-color: #D18F09; 
+}
+.trunk-form button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* --- EL ÁRBOL (Ramificación) --- */
+.tree-container {
+    padding: 10px;
+}
+
+.tree-level-0, .tree-level-1, .tree-level-2 {
+    list-style: none;
+    padding-left: 20px;
+    border-left: 2px solid var(--color-trunk-pastel); /* Línea vertical del tronco/rama */
+}
+.tree-level-0 { 
+    border-left: none; 
+    padding-left: 0; 
+}
+.tree-node { 
+    margin: 15px 0; 
+    position: relative; 
+}
+
+/* Conexión horizontal para las ramas */
+.tree-level-1 .tree-node:before, 
+.tree-level-2 .tree-node:before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-trunk-pastel);
+    transform: translateY(-50%);
+}
+
+/* --- HOJAS (Botones de Solución) --- */
+.leaf-button {
+    background-color: var(--color-leaf-pastel); 
+    color: var(--color-text-dark);
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.1s, transform 0.1s;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.leaf-button:hover { 
+    background-color: #C0DBC0; 
+    transform: translateY(-1px);
+}
+
+/* --- FORMULARIO DE PREOCUPACIÓN --- */
+.concern-form {
+    margin-top: 10px;
+    padding: 10px;
+    border-left: 3px solid var(--color-accent);
+    background-color: #FEFAF0; 
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.concern-form textarea {
+    border: 1px solid #ffcc80;
+}
+
+.concern-form button { 
+    background-color: var(--color-accent); 
+    padding: 8px; 
+    width: auto;
+}
+.concern-form button:hover { background-color: #D18F09; }
+
+.placeholder-text {
+    text-align: center;
+    color: #999;
+    padding: 40px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+}
